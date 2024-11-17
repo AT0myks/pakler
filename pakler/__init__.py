@@ -9,6 +9,7 @@ import zlib
 from ctypes import sizeof
 from enum import Enum, auto
 from pathlib import Path
+from typing import Union
 from zipfile import ZipExtFile
 
 from pakler.structure import (
@@ -39,6 +40,8 @@ PAK_MAGICS_BYTES = (PAK_MAGIC_BYTES, PAK_MAGIC2_BYTES, PAKS_MAGIC_BYTES)
 
 HEADER_CRC_OFFSET = 4  # Offset of the CRC in the file
 HEADER_CRC_OFFSET_64 = 8
+
+Section = Union[PAK32Section, PAK64Section, PAKSSection]
 
 
 class PAKType(Enum):
